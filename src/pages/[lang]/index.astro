@@ -1,0 +1,36 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { SUPPORTED_LANGS, type Lang, useTranslations } from '../../utils/i18n';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BackgroundEffects from '../../components/BackgroundEffects.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import Differentiator from '../../components/Differentiator.astro';
+import Features from '../../components/Features.astro';
+import About from '../../components/About.astro';
+import DownloadCTA from '../../components/DownloadCTA.astro';
+
+export const getStaticPaths = (() => {
+  return SUPPORTED_LANGS.map(lang => ({ params: { lang } }));
+}) satisfies GetStaticPaths;
+
+const { lang } = Astro.params as { lang: Lang };
+const t = useTranslations(lang);
+---
+<BaseLayout
+  lang={lang}
+  title="SmartGym — Unlimited Routines, Always Free"
+  description={t('hero.tagline')}
+>
+  <BackgroundEffects />
+  <Header lang={lang} />
+  <main>
+    <Hero lang={lang} />
+    <Differentiator lang={lang} />
+    <Features lang={lang} />
+    <About lang={lang} />
+    <DownloadCTA lang={lang} />
+  </main>
+  <Footer lang={lang} />
+</BaseLayout>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://heybaldur.github.io/smartgym-web/sitemap.xml

@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "features": "Funciones",
+    "about": "Acerca de",
+    "download": "Descargar"
+  },
+  "hero": {
+    "badge": "Beta MVP",
+    "title1": "Rutinas ilimitadas.",
+    "title2": "Siempre gratis.",
+    "tagline": "La app de fitness inteligente que te da rutinas personalizadas ilimitadas, diagnósticos adaptativos y un escáner de equipos — sin barreras de pago.",
+    "cta_primary": "Descargar en Google Play",
+    "cta_secondary": "Ver funciones",
+    "subtext": "Creada por un entrenador personal certificado 🇵🇱",
+    "coming_soon": "Próximamente en Google Play"
+  },
+  "diff": {
+    "label": "¿Por qué SmartGym?",
+    "title": "Otras apps te bloquean a las 3 rutinas.",
+    "highlight": "SmartGym no.",
+    "body": "Crea, guarda y comparte planes de entrenamiento ilimitados — sin tarjeta de crédito, sin límites ocultos.",
+    "cta": "Empieza a entrenar gratis"
+  },
+  "features": {
+    "label": "Funciones",
+    "title": "Todo lo que necesitas para entrenar de forma más inteligente",
+    "subtitle": "Herramientas reales creadas por un entrenador real.",
+    "star_label": "Función estrella",
+    "items": {
+      "diagnostic": {
+        "title": "Diagnóstico Inteligente",
+        "desc": "Tu perfil (peso, altura, edad, lesiones, objetivo) genera una evaluación personalizada al estilo coach, adaptada a tus límites y metas."
+      },
+      "system": {
+        "title": "Rutinas del Sistema",
+        "desc": "Planes de entrenamiento seleccionados por grupo muscular, nivel (principiante / intermedio / avanzado) y acceso (casa o gimnasio). Cada ejercicio con GIFs animados."
+      },
+      "routines": {
+        "title": "Mis Rutinas",
+        "desc": "Crea, edita y comparte tus propios planes de entrenamiento. Compártelos con clientes mediante un enlace directo — la herramienta ideal para entrenadores."
+      },
+      "substitute": {
+        "title": "Ejercicio Sustituto",
+        "desc": "Encuentra alternativas seguras para cualquier ejercicio, filtradas por tus lesiones registradas. Único en el mercado."
+      },
+      "scanner": {
+        "title": "Escáner de Gimnasio",
+        "desc": "Fotografía el equipamiento de tu gimnasio. SmartGym identifica las máquinas, muestra qué ejercicios puedes hacer con ellas y explica cómo usarlas."
+      },
+      "session": {
+        "title": "Sesión Activa",
+        "desc": "Rastreador de entrenamiento en tiempo real con temporizador, series, repeticiones y peso por ejercicio. Diseñado para el enfoque, no para la distracción."
+      },
+      "history": {
+        "title": "Historial de Entrenamientos",
+        "desc": "Registro completo de cada sesión. Visualiza tu progreso en el tiempo de un vistazo."
+      },
+      "metrics": {
+        "title": "Métricas Corporales",
+        "desc": "Registra peso y medidas corporales. Los gráficos muestran tus tendencias para que veas qué está funcionando."
+      },
+      "multilang": {
+        "title": "Multiidioma",
+        "desc": "Soporte completo para inglés, español y polaco — cambia al instante desde la configuración de la app."
+      }
+    }
+  },
+  "about": {
+    "label": "Sobre el Desarrollador",
+    "name": "Rodolfo A. (Baldurion) Jaubert",
+    "title_text": "Construido por un entrenador. Programado por la misma persona.",
+    "body1": "Rodolfo A. (Baldurion) Jaubert es entrenador personal certificado (FitAcademy, Polonia) y desarrollador de software.",
+    "body2": "SmartGym nació de una frustración simple: las apps de fitness o simplifican demasiado (solo videos de ejercicios) o complican demasiado (rastreadores llenos de datos). SmartGym ofrece conocimiento real de entrenamiento, construido sobre experiencia real de entrenador, en una app que respeta tu tiempo.",
+    "location": "Hecho en Katowice 🇵🇱"
+  },
+  "cta": {
+    "badge": "Ahora en Beta",
+    "title": "¿Listo para entrenar de forma más inteligente?",
+    "subtitle": "Disponible en Android. Descarga gratuita.",
+    "disclaimer": "Actualmente en beta · Disponible para Android 13+"
+  },
+  "footer": {
+    "tagline": "Entrenamientos reales. Sin bloqueos de pago.",
+    "nav_title": "Navegación",
+    "home": "Inicio",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "contact_title": "Contacto",
+    "made_in": "Hecho en Katowice 🇵🇱",
+    "beta": "Beta"
+  },
+  "legal": {
+    "back": "Volver a SmartGym"
+  }
+}

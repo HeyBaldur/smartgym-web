@@ -1,0 +1,38 @@
+---
+import type { Lang } from '../utils/i18n';
+
+interface Props {
+  lang: Lang;
+  href?: string;
+  class?: string;
+}
+const { lang, href = '#', class: className = '' } = Astro.props;
+
+const badgeUrls: Record<Lang, string> = {
+  en: 'https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png',
+  es: 'https://play.google.com/intl/es_419/badges/static/images/badges/es-419_badge_web_generic.png',
+  pl: 'https://play.google.com/intl/pl/badges/static/images/badges/pl_badge_web_generic.png',
+};
+
+const altTexts: Record<Lang, string> = {
+  en: 'Get it on Google Play',
+  es: 'Disponible en Google Play',
+  pl: 'Pobierz z Google Play',
+};
+---
+<a
+  href={href}
+  class:list={['inline-flex h-16 -my-1 hover:opacity-90 active:opacity-75 transition-opacity duration-200', className]}
+  target={href !== '#' ? '_blank' : undefined}
+  rel={href !== '#' ? 'noopener noreferrer' : undefined}
+  aria-label={altTexts[lang]}
+>
+  <img
+    src={badgeUrls[lang]}
+    alt={altTexts[lang]}
+    width="200"
+    height="58"
+    class="h-full w-auto object-contain"
+    loading="eager"
+  />
+</a>

@@ -1,0 +1,33 @@
+---
+import type { Lang } from '../utils/i18n';
+
+interface Props {
+  lang: Lang;
+  pagePath?: string;
+}
+const { lang, pagePath = '' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+
+const langs = [
+  { code: 'en' as Lang, label: 'EN', full: 'English' },
+  { code: 'es' as Lang, label: 'ES', full: 'Español' },
+  { code: 'pl' as Lang, label: 'PL', full: 'Polski' },
+];
+---
+<div class="flex items-center gap-2 mb-10" role="group" aria-label="Language selector">
+  {langs.map(({ code, label, full }) => (
+    <a
+      href={pagePath ? `${base}${code}/${pagePath}` : `${base}${code}/`}
+      aria-label={`Switch to ${full}`}
+      aria-current={code === lang ? 'page' : undefined}
+      class:list={[
+        'px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200',
+        code === lang
+          ? 'bg-green-500/20 text-green-400 border border-green-500/40'
+          : 'text-white/40 hover:text-white/70 border border-transparent hover:border-white/10',
+      ]}
+    >
+      {label}
+    </a>
+  ))}
+</div>

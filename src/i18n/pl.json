@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "features": "Funkcje",
+    "about": "O nas",
+    "download": "Pobierz"
+  },
+  "hero": {
+    "badge": "Beta MVP",
+    "title1": "Nieograniczone plany.",
+    "title2": "Zawsze za darmo.",
+    "tagline": "Inteligentna aplikacja fitness z nieograniczonymi planami treningowymi, spersonalizowanymi diagnostykami i skanerem sprzętu siłowni — bez żadnych blokad płatności.",
+    "cta_primary": "Pobierz na Google Play",
+    "cta_secondary": "Zobacz funkcje",
+    "subtext": "Stworzona przez certyfikowanego trenera personalnego 🇵🇱",
+    "coming_soon": "Wkrótce na Google Play"
+  },
+  "diff": {
+    "label": "Dlaczego SmartGym?",
+    "title": "Inne aplikacje blokują cię po 3 planach.",
+    "highlight": "SmartGym nie.",
+    "body": "Twórz, zapisuj i udostępniaj nieograniczone plany treningowe — bez karty kredytowej, bez ukrytych limitów.",
+    "cta": "Zacznij trenować za darmo"
+  },
+  "features": {
+    "label": "Funkcje",
+    "title": "Wszystko, czego potrzebujesz, by trenować mądrzej",
+    "subtitle": "Prawdziwe narzędzia stworzone przez prawdziwego trenera.",
+    "star_label": "Kluczowa funkcja",
+    "items": {
+      "diagnostic": {
+        "title": "Inteligentna Diagnostyka",
+        "desc": "Twój profil (waga, wzrost, wiek, kontuzje, cel) generuje spersonalizowaną ocenę w stylu coachingowym, dostosowaną do Twoich ograniczeń i celów."
+      },
+      "system": {
+        "title": "Plany Systemowe",
+        "desc": "Starannie dobrane plany treningowe według grupy mięśniowej, poziomu (początkujący / średniozaawansowany / zaawansowany) i dostępu (dom lub siłownia). Każde ćwiczenie z animowanym GIF-em."
+      },
+      "routines": {
+        "title": "Moje Plany",
+        "desc": "Twórz, edytuj i udostępniaj własne plany treningowe. Udostępniaj klientom przez bezpośredni link — idealne narzędzie dla trenera."
+      },
+      "substitute": {
+        "title": "Zamiennik Ćwiczenia",
+        "desc": "Natychmiast znajdź bezpieczne alternatywy dla dowolnego ćwiczenia, przefiltrowane według Twoich zarejestrowanych kontuzji. Unikalne na rynku."
+      },
+      "scanner": {
+        "title": "Skaner Siłowni",
+        "desc": "Sfotografuj sprzęt na siłowni. SmartGym identyfikuje maszyny, pokazuje jakie ćwiczenia możesz wykonywać i wyjaśnia jak z nich korzystać."
+      },
+      "session": {
+        "title": "Aktywna Sesja",
+        "desc": "Tracker treningowy w czasie rzeczywistym z timerem, seriami, powtórzeniami i ciężarem na ćwiczenie. Zaprojektowany dla skupienia, nie rozpraszania."
+      },
+      "history": {
+        "title": "Historia Treningów",
+        "desc": "Kompletny rejestr każdej sesji. Wizualizuj swoje postępy w czasie na pierwszy rzut oka."
+      },
+      "metrics": {
+        "title": "Metryki Ciała",
+        "desc": "Śledź wagę i wymiary ciała. Wykresy pokazują Twoje trendy, byś wiedział/a co działa."
+      },
+      "multilang": {
+        "title": "Wiele Języków",
+        "desc": "Pełna obsługa angielskiego, hiszpańskiego i polskiego — przełącz natychmiast w ustawieniach aplikacji."
+      }
+    }
+  },
+  "about": {
+    "label": "O Deweloperze",
+    "name": "Rodolfo A. (Baldurion) Jaubert",
+    "title_text": "Zbudowane przez trenera. Zakodowane przez tę samą osobę.",
+    "body1": "Rodolfo A. (Baldurion) Jaubert jest certyfikowanym trenerem personalnym (FitAcademy, Polska) i programistą.",
+    "body2": "SmartGym powstał z prostej frustracji: aplikacje fitness albo zbytnio upraszczają (tylko filmy z ćwiczeniami) albo zbytnio komplikują (zatłoczone trackery). SmartGym daje prawdziwą wiedzę treningową, opartą na prawdziwym doświadczeniu trenera, w aplikacji, która szanuje Twój czas.",
+    "location": "Stworzone w Katowicach 🇵🇱"
+  },
+  "cta": {
+    "badge": "Teraz w Fazie Beta",
+    "title": "Gotowy/a trenować mądrzej?",
+    "subtitle": "Dostępna na Androida. Bezpłatna do pobrania.",
+    "disclaimer": "Aktualnie w fazie beta · Dostępna na Android 13+"
+  },
+  "footer": {
+    "tagline": "Prawdziwe treningi. Bez blokad płatności.",
+    "nav_title": "Nawigacja",
+    "home": "Strona główna",
+    "privacy": "Polityka Prywatności",
+    "terms": "Regulamin",
+    "contact_title": "Kontakt",
+    "made_in": "Stworzone w Katowicach 🇵🇱",
+    "beta": "Beta"
+  },
+  "legal": {
+    "back": "Powrót do SmartGym"
+  }
+}

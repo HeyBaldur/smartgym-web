@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{redirect_url}\" http://localhost:4321/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/en/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/es/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/pl/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/en/privacy)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/en/terms)",
+      "Bash(npx kill-port *)",
+      "Bash(python3 -c \"from PIL import Image; img = Image.open\\('C:/Users/fillo/Documents/Fitness/Projects/smartgym-web/public/screenshots/hero.png'\\); print\\(img.size\\)\")",
+      "Bash(powershell -Command 'Add-Type -AssemblyName System.Drawing; $img = [System.Drawing.Image]::FromFile\\('\\\\''C:/Users/fillo/Documents/Fitness/Projects/smartgym-web/public/screenshots/hero.png'\\\\''\\); Write-Output \\($img.Width.ToString\\(\\) + '\\\\''x'\\\\'' + $img.Height.ToString\\(\\)\\); $img.Dispose\\(\\)')"
+    ]
+  }
+}

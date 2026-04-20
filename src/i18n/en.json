@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "features": "Features",
+    "about": "About",
+    "download": "Download"
+  },
+  "hero": {
+    "badge": "Beta MVP",
+    "title1": "Unlimited routines.",
+    "title2": "Always free.",
+    "tagline": "The smart fitness app that gives you unlimited custom workouts, personalized diagnostics, and a gym equipment scanner — without paywalls.",
+    "cta_primary": "Download on Google Play",
+    "cta_secondary": "See features",
+    "subtext": "Made by a certified personal trainer 🇵🇱",
+    "coming_soon": "Coming soon to Google Play"
+  },
+  "diff": {
+    "label": "Why SmartGym?",
+    "title": "Other apps lock you out after 3 routines.",
+    "highlight": "SmartGym doesn't.",
+    "body": "Create, save, and share unlimited custom workout plans — no credit card required, no hidden limits.",
+    "cta": "Start training free"
+  },
+  "features": {
+    "label": "Features",
+    "title": "Everything you need to train smarter",
+    "subtitle": "Real tools built by a real trainer.",
+    "star_label": "Star feature",
+    "items": {
+      "diagnostic": {
+        "title": "Smart Diagnostic",
+        "desc": "Your profile (weight, height, age, injuries, goal) drives a personalized coach-style evaluation tailored to your limits and objectives."
+      },
+      "system": {
+        "title": "System Routines",
+        "desc": "Curated training plans by muscle group, level (beginner / intermediate / advanced), and access (home or gym). Every exercise with animated GIFs."
+      },
+      "routines": {
+        "title": "My Routines",
+        "desc": "Create, edit, and share your own training plans. Share with clients via a direct link — a trainer's best tool."
+      },
+      "substitute": {
+        "title": "Exercise Substitute",
+        "desc": "Instantly find safe alternatives for any exercise, filtered by your registered injuries. Unique on the market."
+      },
+      "scanner": {
+        "title": "Gym Scanner",
+        "desc": "Photograph your gym equipment. SmartGym identifies the machines, shows what exercises you can do, and explains how to use each one."
+      },
+      "session": {
+        "title": "Active Session",
+        "desc": "Real-time workout tracker with built-in timer, sets, reps, and weight per exercise. Designed for focus, not distraction."
+      },
+      "history": {
+        "title": "Workout History",
+        "desc": "Complete log of every session. Visualize your progress over time at a glance."
+      },
+      "metrics": {
+        "title": "Body Metrics",
+        "desc": "Track weight and body measurements. Charts show your trends so you can see what's working."
+      },
+      "multilang": {
+        "title": "Multi-language",
+        "desc": "Full support for English, Spanish, and Polish — switch instantly from the app settings."
+      }
+    }
+  },
+  "about": {
+    "label": "About the Developer",
+    "name": "Rodolfo A. (Baldurion) Jaubert",
+    "title_text": "Built by a trainer. Coded by the same person.",
+    "body1": "Rodolfo A. (Baldurion) Jaubert is a certified personal trainer (FitAcademy, Poland) and software developer.",
+    "body2": "SmartGym was born from a simple frustration: fitness apps either oversimplify (just exercise videos) or overcomplicate (cluttered trackers for gym bros). SmartGym gives real training knowledge, built on real trainer experience, in an app that respects your time.",
+    "location": "Made in Katowice 🇵🇱"
+  },
+  "cta": {
+    "badge": "Now in Beta",
+    "title": "Ready to train smarter?",
+    "subtitle": "Available on Android. Free to download.",
+    "disclaimer": "Currently in beta · Available for Android 13+"
+  },
+  "footer": {
+    "tagline": "Real workouts. No paywalls.",
+    "nav_title": "Navigation",
+    "home": "Home",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact_title": "Contact",
+    "made_in": "Made in Katowice 🇵🇱",
+    "beta": "Beta"
+  },
+  "legal": {
+    "back": "Back to SmartGym"
+  }
+}

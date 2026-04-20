@@ -1,0 +1,107 @@
+---
+interface Props {
+  screenshots: Array<{ src: string; alt: string }>;
+}
+const { screenshots } = Astro.props;
+---
+
+<div class="flex-shrink-0 relative" data-carousel>
+  <div class="absolute inset-0 -m-8 rounded-full bg-gradient-to-b from-green-500/10 to-transparent blur-3xl pointer-events-none"></div>
+
+  <div
+    class="relative w-[240px] sm:w-[260px] rounded-[42px] border-2 border-white/[0.12] bg-black overflow-hidden shadow-2xl shadow-black/80"
+    style="aspect-ratio: 421/846;"
+    data-frame
+  >
+    {screenshots.map((s, i) => (
+      <img
+        src={s.src}
+        alt={s.alt}
+        class="absolute inset-0 w-full h-full object-cover"
+        style={i === 0 ? 'opacity:1;transform:translateX(0)' : 'opacity:0;transform:translateX(20px)'}
+        data-slide={i}
+      />
+    ))}
+    <div class="absolute top-4 left-1/2 -translate-x-1/2 w-16 h-1.5 bg-white/20 rounded-full pointer-events-none z-10"></div>
+  </div>
+
+  <div class="flex justify-center gap-2 mt-4" data-indicators>
+    {screenshots.map((_, i) => (
+      <button
+        class={`rounded-full transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-400 ${i === 0 ? 'w-6 h-1.5 bg-green-400' : 'w-1.5 h-1.5 bg-white/20 hover:bg-white/40'}`}
+        data-index={i}
+        aria-label={`Go to screenshot ${i + 1} of ${screenshots.length}`}
+      />
+    ))}
+  </div>
+</div>
+
+<script>
+  class PhoneCarousel {
+    private el: Element;
+    private slides: HTMLElement[];
+    private dots: HTMLElement[];
+    private current = 0;
+    private timer: ReturnType<typeof setInterval> | null = null;
+    private reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    private touchStartX = 0;
+
+    constructor(el: Element) {
+      this.el = el;
+      this.slides = Array.from(el.querySelectorAll('[data-slide]'));
+      this.dots = Array.from(el.querySelectorAll('[data-indicators] button'));
+
+      if (!this.reduced) this.start();
+
+      const frame = el.querySelector('[data-frame]') as HTMLElement;
+      frame.addEventListener('mouseenter', () => this.pause());
+      frame.addEventListener('mouseleave', () => { if (!this.reduced) this.start(); });
+      frame.addEventListener('touchstart', (e) => {
+        this.pause();
+        this.touchStartX = (e as TouchEvent).touches[0].clientX;
+      }, { passive: true });
+      frame.addEventListener('touchmove', () => {}, { passive: true });
+      frame.addEventListener('touchend', (e) => {
+        const dx = (e as TouchEvent).changedTouches[0].clientX - this.touchStartX;
+        if (Math.abs(dx) >= 50) this.go(dx < 0 ? this.next() : this.prev());
+        if (!this.reduced) this.start();
+      }, { passive: true });
+
+      this.dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => { this.go(i); this.pause(); if (!this.reduced) this.start(); });
+      });
+    }
+
+    private next() { return (this.current + 1) % this.slides.length; }
+    private prev() { return (this.current - 1 + this.slides.length) % this.slides.length; }
+
+    private go(index: number) {
+      const prev = this.current;
+      this.current = index;
+
+      const ease = 'cubic-bezier(0.4,0,0.2,1)';
+      const dur = this.reduced ? '0ms' : '600ms';
+
+      (this.slides[prev] as HTMLElement).style.cssText =
+        `opacity:0;transform:translateX(-20px);transition:opacity ${dur} ${ease},transform ${dur} ${ease}`;
+      (this.slides[index] as HTMLElement).style.cssText =
+        `opacity:1;transform:translateX(0);transition:opacity ${dur} ${ease},transform ${dur} ${ease}`;
+
+      this.dots[prev].className = this.dots[prev].className
+        .replace('w-6 h-1.5 bg-green-400', 'w-1.5 h-1.5 bg-white/20 hover:bg-white/40');
+      this.dots[index].className = this.dots[index].className
+        .replace('w-1.5 h-1.5 bg-white/20 hover:bg-white/40', 'w-6 h-1.5 bg-green-400');
+    }
+
+    private start() {
+      this.pause();
+      this.timer = setInterval(() => this.go(this.next()), 4000);
+    }
+
+    private pause() {
+      if (this.timer) { clearInterval(this.timer); this.timer = null; }
+    }
+  }
+
+  document.querySelectorAll('[data-carousel]').forEach(el => new PhoneCarousel(el));
+</script>
