@@ -1,0 +1,84 @@
+---
+interface Props {
+  compact?: boolean;   // true = small inline version (About section)
+  class?: string;
+}
+const { compact = false, class: className = '' } = Astro.props;
+
+/*
+  Official EU flag: Pantone Reflex Blue → #003399, Pantone Yellow → #FFCC00
+  Specs: 12 five-pointed gold stars on blue, circle radius = H/3,
+         star outer radius = H/18, inner ≈ outer × 0.4.
+
+  ViewBox 810×540 (3:2 standard EU flag ratio).
+  Center (405,270), ring R=180, star outer=30, inner=12.
+
+  Each star polygon: 10 points, tip pointing up (-90°), ±36° increments.
+  Offsets from each star center (pre-computed):
+    (0,−30) (7.05,−9.71) (28.53,−9.27) (11.41,3.71) (17.63,24.27)
+    (0,12)  (−17.63,24.27) (−11.41,3.71) (−28.53,−9.27) (−7.05,−9.71)
+*/
+---
+
+{compact ? (
+  <!-- Compact: small flag + one-liner text (used in About section) -->
+  <div class:list={['inline-flex items-center gap-2.5', className]}>
+    <svg viewBox="0 0 810 540" width="48" height="32" role="img" aria-label="European Union flag" class="rounded flex-shrink-0 shadow">
+      <rect width="810" height="540" fill="#003399"/>
+      <polygon points="405,60 412.05,80.29 433.53,80.73 416.41,93.71 422.63,114.27 405,102 387.37,114.27 393.59,93.71 376.47,80.73 397.95,80.29" fill="#FFCC00"/>
+      <polygon points="495,84.12 502.05,104.41 523.53,104.85 506.41,117.83 512.63,138.39 495,126.12 477.37,138.39 483.59,117.83 466.47,104.85 487.95,104.41" fill="#FFCC00"/>
+      <polygon points="560.88,150 567.93,170.29 589.41,170.73 572.29,183.71 578.51,204.27 560.88,192 543.25,204.27 549.47,183.71 532.35,170.73 553.83,170.29" fill="#FFCC00"/>
+      <polygon points="585,240 592.05,260.29 613.53,260.73 596.41,273.71 602.63,294.27 585,282 567.37,294.27 573.59,273.71 556.47,260.73 577.95,260.29" fill="#FFCC00"/>
+      <polygon points="560.88,330 567.93,350.29 589.41,350.73 572.29,363.71 578.51,384.27 560.88,372 543.25,384.27 549.47,363.71 532.35,350.73 553.83,350.29" fill="#FFCC00"/>
+      <polygon points="495,395.88 502.05,416.17 523.53,416.61 506.41,429.59 512.63,450.15 495,437.88 477.37,450.15 483.59,429.59 466.47,416.61 487.95,416.17" fill="#FFCC00"/>
+      <polygon points="405,420 412.05,440.29 433.53,440.73 416.41,453.71 422.63,474.27 405,462 387.37,474.27 393.59,453.71 376.47,440.73 397.95,440.29" fill="#FFCC00"/>
+      <polygon points="315,395.88 322.05,416.17 343.53,416.61 326.41,429.59 332.63,450.15 315,437.88 297.37,450.15 303.59,429.59 286.47,416.61 307.95,416.17" fill="#FFCC00"/>
+      <polygon points="249.12,330 256.17,350.29 277.65,350.73 260.53,363.71 266.75,384.27 249.12,372 231.49,384.27 237.71,363.71 220.59,350.73 242.07,350.29" fill="#FFCC00"/>
+      <polygon points="225,240 232.05,260.29 253.53,260.73 236.41,273.71 242.63,294.27 225,282 207.37,294.27 213.59,273.71 196.47,260.73 217.95,260.29" fill="#FFCC00"/>
+      <polygon points="249.12,150 256.17,170.29 277.65,170.73 260.53,183.71 266.75,204.27 249.12,192 231.49,204.27 237.71,183.71 220.59,170.73 242.07,170.29" fill="#FFCC00"/>
+      <polygon points="315,84.12 322.05,104.41 343.53,104.85 326.41,117.83 332.63,138.39 315,126.12 297.37,138.39 303.59,117.83 286.47,104.85 307.95,104.41" fill="#FFCC00"/>
+    </svg>
+    <div class="flex flex-col leading-tight">
+      <span class="text-white/75 text-xs font-semibold">Made in the EU</span>
+      <span class="text-white/35 text-[10px]">GDPR Compliant · Poland 🇵🇱</span>
+    </div>
+  </div>
+) : (
+  <!-- Full block: larger flag + details (used in Footer Contact column) -->
+  <div class:list={['', className]}>
+    <div class="flex items-start gap-4">
+      <svg viewBox="0 0 810 540" width="90" height="60" role="img" aria-label="European Union flag" class="rounded-md flex-shrink-0 shadow-lg shadow-black/40 border border-white/[0.06]">
+        <rect width="810" height="540" fill="#003399"/>
+        <polygon points="405,60 412.05,80.29 433.53,80.73 416.41,93.71 422.63,114.27 405,102 387.37,114.27 393.59,93.71 376.47,80.73 397.95,80.29" fill="#FFCC00"/>
+        <polygon points="495,84.12 502.05,104.41 523.53,104.85 506.41,117.83 512.63,138.39 495,126.12 477.37,138.39 483.59,117.83 466.47,104.85 487.95,104.41" fill="#FFCC00"/>
+        <polygon points="560.88,150 567.93,170.29 589.41,170.73 572.29,183.71 578.51,204.27 560.88,192 543.25,204.27 549.47,183.71 532.35,170.73 553.83,170.29" fill="#FFCC00"/>
+        <polygon points="585,240 592.05,260.29 613.53,260.73 596.41,273.71 602.63,294.27 585,282 567.37,294.27 573.59,273.71 556.47,260.73 577.95,260.29" fill="#FFCC00"/>
+        <polygon points="560.88,330 567.93,350.29 589.41,350.73 572.29,363.71 578.51,384.27 560.88,372 543.25,384.27 549.47,363.71 532.35,350.73 553.83,350.29" fill="#FFCC00"/>
+        <polygon points="495,395.88 502.05,416.17 523.53,416.61 506.41,429.59 512.63,450.15 495,437.88 477.37,450.15 483.59,429.59 466.47,416.61 487.95,416.17" fill="#FFCC00"/>
+        <polygon points="405,420 412.05,440.29 433.53,440.73 416.41,453.71 422.63,474.27 405,462 387.37,474.27 393.59,453.71 376.47,440.73 397.95,440.29" fill="#FFCC00"/>
+        <polygon points="315,395.88 322.05,416.17 343.53,416.61 326.41,429.59 332.63,450.15 315,437.88 297.37,450.15 303.59,429.59 286.47,416.61 307.95,416.17" fill="#FFCC00"/>
+        <polygon points="249.12,330 256.17,350.29 277.65,350.73 260.53,363.71 266.75,384.27 249.12,372 231.49,384.27 237.71,363.71 220.59,350.73 242.07,350.29" fill="#FFCC00"/>
+        <polygon points="225,240 232.05,260.29 253.53,260.73 236.41,273.71 242.63,294.27 225,282 207.37,294.27 213.59,273.71 196.47,260.73 217.95,260.29" fill="#FFCC00"/>
+        <polygon points="249.12,150 256.17,170.29 277.65,170.73 260.53,183.71 266.75,204.27 249.12,192 231.49,204.27 237.71,183.71 220.59,170.73 242.07,170.29" fill="#FFCC00"/>
+        <polygon points="315,84.12 322.05,104.41 343.53,104.85 326.41,117.83 332.63,138.39 315,126.12 297.37,138.39 303.59,117.83 286.47,104.85 307.95,104.41" fill="#FFCC00"/>
+      </svg>
+
+      <div>
+        <p class="text-white/80 text-sm font-semibold leading-snug mb-1">
+          European Union
+        </p>
+        <p class="text-white/40 text-xs leading-relaxed">
+          Made in Poland · EU Member State
+        </p>
+        <div class="flex items-center gap-1.5 mt-2.5">
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#003399]/30 border border-[#003399]/50 text-[#6ba3ff] text-[10px] font-semibold">
+            <svg class="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 10.5c0 6.624 5.376 12 12 12s12-5.376 12-12a11.955 11.955 0 00-.598-3.75A11.959 11.959 0 0015 2.714m-3-1.75v2"/>
+            </svg>
+            GDPR Compliant
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+)}

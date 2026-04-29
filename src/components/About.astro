@@ -40,9 +40,16 @@ const t = useTranslations(lang);
         <p class="text-white/55 text-base leading-relaxed mb-8">
           {t('about.body2')}
         </p>
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/40 text-sm mb-10">
-          <span>📍</span>
-          <span>{t('about.location')}</span>
+        <div class="flex flex-wrap items-center gap-3 mb-10">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/40 text-sm">
+            <span>📍</span>
+            <span>{t('about.location')}</span>
+            <!-- Polish flag SVG — emoji renders as "PL" on Windows -->
+            <svg viewBox="0 0 40 26" width="22" height="14" role="img" aria-label="Polish flag" class="rounded flex-shrink-0">
+              <rect width="40" height="13" fill="#FFFFFF"/>
+              <rect y="13" width="40" height="13" fill="#DC143C"/>
+            </svg>
+          </div>
         </div>
 
         <!-- Contact / Booking block -->
