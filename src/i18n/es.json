@@ -5,27 +5,64 @@
     "download": "Descargar"
   },
   "hero": {
-    "badge": "Beta MVP",
-    "title1": "Rutinas ilimitadas.",
-    "title2": "Siempre gratis.",
-    "tagline": "La app de fitness inteligente que te da rutinas personalizadas ilimitadas, diagnósticos adaptativos y un escáner de equipos — sin barreras de pago.",
+    "badge": "Beta Abierta · Gratis por Ahora",
+    "title1": "Entrena más inteligente.",
+    "title2": "Sin límites. Sin cuotas.",
+    "tagline": "Una app de fitness creada por un entrenador certificado — rutinas ilimitadas, diagnósticos personalizados y escáner de equipamiento. Gratis durante la Beta.",
     "cta_primary": "Descargar en Google Play",
     "cta_secondary": "Ver funciones",
-    "subtext": "Creada por un entrenador personal certificado 🇵🇱",
-    "coming_soon": "Próximamente en Google Play"
+    "subtext": "Creada por un entrenador personal certificado · Beta Abierta",
+    "coming_soon": "Próximamente en Google Play",
+    "stat1_value": "9",
+    "stat1_label": "Funciones",
+    "stat2_value": "∞",
+    "stat2_label": "Rutinas",
+    "stat3_value": "0",
+    "stat3_label": "Cuotas (Beta)",
+    "stat4_value": "3",
+    "stat4_label": "Idiomas"
+  },
+  "stats": {
+    "label": "Dónde estamos ahora mismo",
+    "s1_value": "9",
+    "s1_label": "Funciones poderosas",
+    "s2_value": "∞",
+    "s2_label": "Rutinas que puedes crear",
+    "s3_value": "0",
+    "s3_label": "Cuotas durante la Beta",
+    "s4_value": "3",
+    "s4_label": "Idiomas disponibles"
+  },
+  "how": {
+    "label": "Cómo funciona",
+    "title": "Listo en minutos",
+    "subtitle": "Sin laberintos de configuración. Solo entrenamiento real desde el primer día.",
+    "step1_title": "Construye tu perfil",
+    "step1_desc": "Ingresa tu peso, altura, edad, objetivos y lesiones. SmartGym usa esto para personalizar todo.",
+    "step2_title": "Recibe tu diagnóstico",
+    "step2_desc": "Obtén una evaluación al estilo coach adaptada a tus límites — del tipo que normalmente pagarías a un entrenador.",
+    "step3_title": "Entrena con tu plan",
+    "step3_desc": "Sigue una rutina del sistema, crea la tuya propia, o escanea el equipamiento de tu gimnasio para descubrir qué puedes hacer ahora mismo."
   },
   "diff": {
     "label": "¿Por qué SmartGym?",
     "title": "Otras apps te bloquean a las 3 rutinas.",
     "highlight": "SmartGym no.",
-    "body": "Crea, guarda y comparte planes de entrenamiento ilimitados — sin tarjeta de crédito, sin límites ocultos.",
-    "cta": "Empieza a entrenar gratis"
+    "body": "Crea, guarda y comparte planes de entrenamiento ilimitados — sin tarjeta de crédito, sin límites ocultos durante la Beta.",
+    "cta": "Empieza a entrenar gratis",
+    "vs_them": "Otras apps",
+    "vs_us": "SmartGym",
+    "f1": "Rutinas ilimitadas",
+    "f2": "Entrenamientos conscientes de lesiones",
+    "f3": "Escáner de equipamiento inteligente",
+    "f4": "Diagnóstico de coach personalizado",
+    "f5": "Crea y comparte tus propios planes",
+    "f6": "Gratis durante la Beta"
   },
   "features": {
     "label": "Funciones",
     "title": "Todo lo que necesitas para entrenar de forma más inteligente",
-    "subtitle": "Herramientas reales creadas por un entrenador real.",
-    "star_label": "Función estrella",
+    "subtitle": "Herramientas reales creadas por un entrenador real — no por un equipo con capital de riesgo.",
     "items": {
       "diagnostic": {
         "title": "Diagnóstico Inteligente",
@@ -71,16 +108,20 @@
     "title_text": "Construido por un entrenador. Programado por la misma persona.",
     "body1": "Rodolfo A. (Baldurion) Jaubert es entrenador personal certificado (FitAcademy, Polonia) y desarrollador de software.",
     "body2": "SmartGym nació de una frustración simple: las apps de fitness o simplifican demasiado (solo videos de ejercicios) o complican demasiado (rastreadores llenos de datos). SmartGym ofrece conocimiento real de entrenamiento, construido sobre experiencia real de entrenador, en una app que respeta tu tiempo.",
-    "location": "Hecho en Katowice 🇵🇱"
+    "location": "Hecho en Katowice 🇵🇱",
+    "contact_title": "Trabaja directamente con Baldurion",
+    "contact_body": "¿Necesitas un plan de entrenamiento personalizado, orientación profesional o sesiones de entrenador personal? Reserva una sesión o contáctame directamente.",
+    "book_session": "Reservar una sesión",
+    "or_email": "o por correo"
   },
   "cta": {
-    "badge": "Ahora en Beta",
-    "title": "¿Listo para entrenar de forma más inteligente?",
-    "subtitle": "Disponible en Android. Descarga gratuita.",
-    "disclaimer": "Actualmente en beta · Disponible para Android 13+"
+    "badge": "Beta — Descarga Gratuita",
+    "title": "Tu mejor entrenamiento empieza hoy.",
+    "subtitle": "Gratis durante la Beta. Inicia sesión con Google. Sin tarjeta de crédito.",
+    "disclaimer": "Actualmente en Beta · Android 13+ · Podrían habilitarse planes de pago en versiones futuras"
   },
   "footer": {
-    "tagline": "Entrenamientos reales. Sin bloqueos de pago.",
+    "tagline": "Entrenamientos reales. Creados por un entrenador.",
     "nav_title": "Navegación",
     "home": "Inicio",
     "privacy": "Política de Privacidad",

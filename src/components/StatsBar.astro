@@ -1,0 +1,44 @@
+---
+import type { Lang } from '../utils/i18n';
+import { useTranslations } from '../utils/i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const stats = [
+  { key: 's1', value: t('stats.s1_value'), label: t('stats.s1_label') },
+  { key: 's2', value: t('stats.s2_value'), label: t('stats.s2_label') },
+  { key: 's3', value: t('stats.s3_value'), label: t('stats.s3_label') },
+  { key: 's4', value: t('stats.s4_value'), label: t('stats.s4_label') },
+];
+---
+
+<section class="relative z-10 py-16">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <p data-stats-label class="text-center text-white/30 text-xs font-semibold uppercase tracking-widest mb-10">
+      {t('stats.label')}
+    </p>
+
+    <div data-stats-grid class="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.06] rounded-2xl overflow-hidden border border-white/[0.06]">
+      {stats.map(({ key, value, label }) => (
+        <div
+          data-stat-item
+          class="group bg-black/60 hover:bg-white/[0.04] transition-colors duration-300 px-6 py-8 flex flex-col items-center text-center"
+        >
+          <span
+            class="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-green-300 to-green-500 leading-none mb-2"
+            data-stat-value={value}
+          >
+            {value}
+          </span>
+          <span class="text-white/40 text-xs font-medium tracking-wide">{label}</span>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

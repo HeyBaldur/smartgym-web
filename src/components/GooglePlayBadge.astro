@@ -8,31 +8,51 @@ interface Props {
 }
 const { lang, href = '#', class: className = '' } = Astro.props;
 
-const badgeUrls: Record<Lang, string> = {
-  en: 'https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png',
-  es: 'https://play.google.com/intl/es_419/badges/static/images/badges/es-419_badge_web_generic.png',
-  pl: 'https://play.google.com/intl/pl/badges/static/images/badges/pl_badge_web_generic.png',
+const labels: Record<Lang, { eyebrow: string; title: string; aria: string }> = {
+  en: { eyebrow: 'Get it on',       title: 'Google Play', aria: 'Get it on Google Play'    },
+  es: { eyebrow: 'Disponible en',   title: 'Google Play', aria: 'Disponible en Google Play' },
+  pl: { eyebrow: 'Pobierz z',       title: 'Google Play', aria: 'Pobierz z Google Play'     },
 };
 
-const altTexts: Record<Lang, string> = {
-  en: 'Get it on Google Play',
-  es: 'Disponible en Google Play',
-  pl: 'Pobierz z Google Play',
-};
+const { eyebrow, title, aria } = labels[lang];
 ---
+
 <a
   href={href}
-  class:list={['inline-flex h-16 -my-1 hover:opacity-90 active:opacity-75 transition-opacity duration-200', className]}
+  class:list={[
+    'inline-flex items-center gap-3 h-14 px-5',
+    'bg-black border border-white/20 rounded-xl',
+    'hover:bg-white/[0.06] hover:border-white/35',
+    'active:scale-95 transition-all duration-200',
+    'shadow-xl shadow-black/40',
+    className,
+  ]}
   target={href !== '#' ? '_blank' : undefined}
   rel={href !== '#' ? 'noopener noreferrer' : undefined}
-  aria-label={altTexts[lang]}
+  aria-label={aria}
 >
-  <img
-    src={badgeUrls[lang]}
-    alt={altTexts[lang]}
-    width="200"
-    height="58"
-    class="h-full w-auto object-contain"
-    loading="eager"
-  />
+  <!-- Google Play icon (official colorful paths) -->
+  <svg
+    viewBox="0 0 24 24"
+    width="26"
+    height="26"
+    fill="none"
+    aria-hidden="true"
+    class="flex-shrink-0"
+  >
+    <path d="M3.18 23.76c.32.18.7.2 1.06.02l12.76-7.37-2.93-2.93-10.89 10.28z" fill="#EA4335"/>
+    <path d="M22.33 10.63l-3.12-1.8-3.25 3.24 3.25 3.25 3.15-1.82c.9-.52.9-1.84-.03-2.87z" fill="#FBBC05"/>
+    <path d="M2.12 2.24A1.36 1.36 0 002 2.95v18.1c0 .26.04.5.12.71l.06.06L12.32 12v-.24L2.18 2.18l-.06.06z" fill="#4285F4"/>
+    <path d="M14.07 12l3.05-3.05L4.24 1.6A1.18 1.18 0 003.19 1.6L14.07 12z" fill="#34A853"/>
+  </svg>
+
+  <!-- Text -->
+  <div class="flex flex-col items-start leading-none">
+    <span class="text-white/50 text-[10px] font-medium tracking-widest uppercase mb-0.5">
+      {eyebrow}
+    </span>
+    <span class="text-white font-semibold text-[17px] tracking-tight">
+      {title}
+    </span>
+  </div>
 </a>

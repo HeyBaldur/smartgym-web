@@ -1,7 +1,32 @@
 ---
 ---
 <div class="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+
+  <!-- Dot grid texture -->
   <div class="bg-grid absolute inset-0"></div>
-  <div class="orb-1"></div>
-  <div class="orb-2"></div>
+
+  <!-- Blob 1 — top-left, hero principal -->
+  <div
+    data-blob="1"
+    class="absolute -top-32 -left-32 w-[580px] h-[580px] rounded-full bg-gradient-to-br from-green-500 via-emerald-500 to-green-700 opacity-50 blur-3xl"
+  ></div>
+
+  <!-- Blob 2 — top-right, acento superior -->
+  <div
+    data-blob="2"
+    class="absolute -top-16 -right-24 w-[380px] h-[380px] rounded-full bg-gradient-to-bl from-emerald-400 via-green-500 to-teal-700 opacity-30 blur-3xl"
+  ></div>
+
+  <!-- Blob 3 — mitad izquierda, profundidad en features -->
+  <div
+    data-blob="3"
+    class="absolute top-[38%] -left-16 w-[420px] h-[420px] rounded-full bg-gradient-to-tr from-green-700 via-emerald-600 to-green-500 opacity-35 blur-3xl"
+  ></div>
+
+  <!-- Blob 4 — inferior derecha, glow del CTA -->
+  <div
+    data-blob="4"
+    class="absolute -bottom-24 -right-24 w-[520px] h-[520px] rounded-full bg-gradient-to-tl from-emerald-500 via-green-600 to-teal-700 opacity-40 blur-3xl"
+  ></div>
+
 </div>

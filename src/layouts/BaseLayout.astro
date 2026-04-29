@@ -1,5 +1,6 @@
 ---
 import type { Lang } from '../utils/i18n';
+import Animations from '../components/Animations.astro';
 
 interface Props {
   title: string;
@@ -46,5 +47,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://heybaldu
   </head>
   <body class="bg-black text-white min-h-screen font-sans antialiased">
     <slot />
+    <Animations />
   </body>
 </html>

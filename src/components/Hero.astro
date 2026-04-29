@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '../utils/i18n';
-import { useTranslations } from '../utils/i18n';
+import { useTranslations, langUrl } from '../utils/i18n';
 import GooglePlayBadge from './GooglePlayBadge.astro';
 import PhoneCarousel from './PhoneCarousel.astro';
 
@@ -10,35 +10,47 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+
+const chips = [
+  { value: t('hero.stat1_value'), label: t('hero.stat1_label') },
+  { value: t('hero.stat2_value'), label: t('hero.stat2_label') },
+  { value: t('hero.stat3_value'), label: t('hero.stat3_label') },
+  { value: t('hero.stat4_value'), label: t('hero.stat4_label') },
+];
 ---
+
 <section class="relative z-10 min-h-screen flex items-center pt-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20 md:py-28">
     <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 
+      <!-- Left: copy -->
       <div class="flex-1 text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
 
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/25 mb-6">
+        <div data-hero-badge class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/25 mb-6">
           <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
           <span class="text-green-400 text-xs font-semibold tracking-wider uppercase">{t('hero.badge')}</span>
         </div>
 
         <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-none tracking-tight mb-6">
-          <span class="text-white">{t('hero.title1')}</span><br />
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-500">{t('hero.title2')}</span>
+          <span data-hero-line class="block text-white">{t('hero.title1')}</span>
+          <span data-hero-line class="block text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">{t('hero.title2')}</span>
         </h1>
 
-        <p class="text-lg sm:text-xl text-white/60 font-light leading-relaxed mb-10 text-balance">
+        <p data-hero-tagline class="text-lg sm:text-xl text-white/60 font-light leading-relaxed mb-10 text-balance">
           {t('hero.tagline')}
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center sm:items-center">
-          <GooglePlayBadge
-            lang={lang}
-            href="#"
-            class="shadow-xl shadow-black/40"
-          />
+          <div data-hero-cta>
+            <GooglePlayBadge
+              lang={lang}
+              href="#"
+              class="shadow-xl shadow-black/40"
+            />
+          </div>
           <a
-            href={`${base}${lang}/#features`}
+            data-hero-cta
+            href={langUrl(lang, base, '#features')}
             class="inline-flex items-center justify-center gap-2 h-14 px-6 rounded-xl border border-white/15 text-white/80 hover:text-white hover:border-white/30 transition-all duration-200 text-sm font-medium hover:bg-white/[0.04]"
           >
             {t('hero.cta_secondary')}
@@ -48,10 +60,21 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
           </a>
         </div>
 
-        <p class="text-white/25 text-xs mt-6">{t('hero.subtext')}</p>
+        <!-- Stat chips -->
+        <div data-hero-chips class="flex flex-wrap gap-2 justify-center lg:justify-start mt-8">
+          {chips.map(({ value, label }) => (
+            <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-sm">
+              <span class="text-green-400 font-bold text-sm">{value}</span>
+              <span class="text-white/35 text-xs">{label}</span>
+            </div>
+          ))}
+        </div>
+
+        <p data-hero-sub class="text-white/25 text-xs mt-5">{t('hero.subtext')}</p>
 
       </div>
 
+      <!-- Right: phone -->
       <PhoneCarousel
         screenshots={[
           { src: `${base}screenshots/home.jpg`,       alt: 'SmartGym home screen' },

@@ -1,0 +1,201 @@
+---
+---
+<script>
+import { animate, createTimeline, stagger, set } from 'animejs';
+
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ─── Utility: fire once on intersection ────────────────────────────────────
+function onceEnter(
+  selector: string,
+  fn: (el: Element) => void,
+  threshold = 0.12,
+) {
+  const els = document.querySelectorAll(selector);
+  if (!els.length) return;
+  const obs = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((e) => {
+        if (e.isIntersecting) { fn(e.target); obs.unobserve(e.target); }
+      }),
+    { threshold },
+  );
+  els.forEach((el) => obs.observe(el));
+}
+
+if (!reduced) {
+
+  // ═══════════════════════════════════════════════════════
+  // HERO — entrance timeline
+  // ═══════════════════════════════════════════════════════
+  set('[data-hero-badge]',   { opacity: 0, translateY: -16 });
+  set('[data-hero-line]',    { opacity: 0, translateY: 42 });
+  set('[data-hero-tagline]', { opacity: 0, translateY: 24 });
+  set('[data-hero-cta]',     { opacity: 0, translateY: 20, scale: 0.97 });
+  set('[data-hero-chips]',   { opacity: 0, translateY: 16 });
+  set('[data-hero-sub]',     { opacity: 0 });
+
+  createTimeline({ defaults: { ease: 'outCubic' } })
+    .add('[data-hero-badge]',   { opacity: 1, translateY: 0, duration: 540 }, 60)
+    .add('[data-hero-line]',    { opacity: 1, translateY: 0, duration: 760, delay: stagger(140) }, 180)
+    .add('[data-hero-tagline]', { opacity: 1, translateY: 0, duration: 640 }, 520)
+    .add('[data-hero-cta]',     { opacity: 1, translateY: 0, scale: 1, duration: 520, delay: stagger(80) }, 680)
+    .add('[data-hero-chips]',   { opacity: 1, translateY: 0, duration: 480 }, 820)
+    .add('[data-hero-sub]',     { opacity: 1, duration: 400 }, 920);
+
+  // Phone floating
+  animate('[data-phone-float]', {
+    translateY: [-14, 0],
+    duration: 3000,
+    alternate: true,
+    loop: true,
+    ease: 'inOutSine',
+  });
+
+  // Background blobs — slow organic drift
+  animate('[data-blob="1"]', { translateX:  55, translateY:  40, duration: 18000, alternate: true, loop: true, ease: 'inOutSine' });
+  animate('[data-blob="2"]', { translateX: -48, translateY:  30, duration: 22000, alternate: true, loop: true, ease: 'inOutSine' });
+  animate('[data-blob="3"]', { translateX:  38, translateY: -44, duration: 26000, alternate: true, loop: true, ease: 'inOutSine' });
+  animate('[data-blob="4"]', { translateX: -42, translateY: -28, duration: 20000, alternate: true, loop: true, ease: 'inOutSine' });
+
+  // ═══════════════════════════════════════════════════════
+  // STATS BAR
+  // ═══════════════════════════════════════════════════════
+  set('[data-stats-label]', { opacity: 0 });
+  set('[data-stat-item]',   { opacity: 0, translateY: 28, scale: 0.96 });
+
+  const statsGrid = document.querySelector('[data-stats-grid]');
+  if (statsGrid) {
+    new IntersectionObserver(
+      ([entry], obs) => {
+        if (!entry.isIntersecting) return;
+        obs.disconnect();
+        animate('[data-stats-label]', { opacity: 1, duration: 500, ease: 'outCubic' });
+        animate('[data-stat-item]', {
+          opacity: 1, translateY: 0, scale: 1,
+          duration: 600, delay: stagger(80),
+          ease: 'outBack(1.2)',
+        });
+
+        // Numeric counter for stat values (e.g. 9, 0, 3 — skip ∞)
+        document.querySelectorAll('[data-stat-value]').forEach((el) => {
+          const raw = el.getAttribute('data-stat-value') ?? '';
+          const target = parseInt(raw, 10);
+          if (isNaN(target)) return; // skip ∞
+          let start = 0;
+          const duration = 1200;
+          const startTime = performance.now();
+          function tick(now: number) {
+            const p = Math.min((now - startTime) / duration, 1);
+            const ease = 1 - Math.pow(1 - p, 3);
+            el.textContent = String(Math.round(ease * target));
+            if (p < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+      },
+      { threshold: 0.2 },
+    ).observe(statsGrid);
+  }
+
+  // ═══════════════════════════════════════════════════════
+  // HOW IT WORKS — sequential step reveal
+  // ═══════════════════════════════════════════════════════
+  set('[data-how-header]', { opacity: 0, translateY: 32 });
+  set('[data-how-step]',   { opacity: 0, translateY: 36 });
+
+  onceEnter('[data-how-header]', (el) =>
+    animate(el, { opacity: 1, translateY: 0, duration: 700, ease: 'outCubic' }),
+  );
+
+  const howGrid = document.querySelector('[data-how-step]')?.parentElement;
+  if (howGrid) {
+    new IntersectionObserver(
+      ([entry], obs) => {
+        if (!entry.isIntersecting) return;
+        obs.disconnect();
+        animate('[data-how-step]', {
+          opacity: 1, translateY: 0,
+          duration: 680, delay: stagger(120),
+          ease: 'outCubic',
+        });
+      },
+      { threshold: 0.1 },
+    ).observe(howGrid);
+  }
+
+  // ═══════════════════════════════════════════════════════
+  // FEATURES
+  // ═══════════════════════════════════════════════════════
+  set('[data-features-header]', { opacity: 0, translateY: 32 });
+  onceEnter('[data-features-header]', (el) =>
+    animate(el, { opacity: 1, translateY: 0, duration: 700, ease: 'outCubic' }),
+  );
+
+  set('[data-feature-card]', { opacity: 0, translateY: 48, scale: 0.97 });
+  const grid = document.querySelector('[data-feature-grid]');
+  if (grid) {
+    new IntersectionObserver(
+      ([entry], obs) => {
+        if (!entry.isIntersecting) return;
+        obs.disconnect();
+        animate('[data-feature-card]', {
+          opacity: 1, translateY: 0, scale: 1,
+          duration: 640, delay: stagger(50),
+          ease: 'outCubic',
+        });
+      },
+      { threshold: 0.06 },
+    ).observe(grid);
+  }
+
+  // ═══════════════════════════════════════════════════════
+  // DIFFERENTIATOR
+  // ═══════════════════════════════════════════════════════
+  set('[data-diff-header]',    { opacity: 0, translateY: 30 });
+  set('[data-diff-container]', { opacity: 0, translateY: 20 });
+  set('[data-diff-row]',       { opacity: 0, translateX: -18 });
+
+  onceEnter('[data-diff-header]', (el) =>
+    animate(el, { opacity: 1, translateY: 0, duration: 700, ease: 'outCubic' }),
+  );
+
+  const diffContainer = document.querySelector('[data-diff-container]');
+  if (diffContainer) {
+    new IntersectionObserver(
+      ([entry], obs) => {
+        if (!entry.isIntersecting) return;
+        obs.disconnect();
+        animate(diffContainer, { opacity: 1, translateY: 0, duration: 600, ease: 'outCubic' });
+        animate('[data-diff-row]', {
+          opacity: 1, translateX: 0,
+          duration: 520, delay: stagger(60, { start: 200 }),
+          ease: 'outCubic',
+        });
+      },
+      { threshold: 0.1 },
+    ).observe(diffContainer);
+  }
+
+  // ═══════════════════════════════════════════════════════
+  // DOWNLOAD CTA
+  // ═══════════════════════════════════════════════════════
+  set('[data-cta-container]', { opacity: 0, translateY: 40, scale: 0.98 });
+  onceEnter('[data-cta-container]', (el) =>
+    animate(el, { opacity: 1, translateY: 0, scale: 1, duration: 800, ease: 'outCubic' }),
+    0.15,
+  );
+
+  // Pulse the CTA glow rings
+  document.querySelectorAll('#download .rounded-full.border').forEach((ring, i) => {
+    animate(ring as HTMLElement, {
+      scale: [1, 1.03, 1],
+      opacity: [1, 0.6, 1],
+      duration: 4000 + i * 800,
+      loop: true,
+      ease: 'inOutSine',
+      delay: i * 600,
+    });
+  });
+}
+</script>

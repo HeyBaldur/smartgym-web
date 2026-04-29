@@ -1,3 +1,35 @@
 ---
-return Astro.redirect('/en/');
+import { useTranslations } from '../utils/i18n';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BackgroundEffects from '../components/BackgroundEffects.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import StatsBar from '../components/StatsBar.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Features from '../components/Features.astro';
+import Differentiator from '../components/Differentiator.astro';
+import About from '../components/About.astro';
+import DownloadCTA from '../components/DownloadCTA.astro';
+
+const lang = 'en' as const;
+const t = useTranslations(lang);
 ---
+<BaseLayout
+  lang={lang}
+  title="SmartGym — Train Smarter. No Limits. No Fees."
+  description={t('hero.tagline')}
+>
+  <BackgroundEffects />
+  <Header lang={lang} />
+  <main>
+    <Hero lang={lang} />
+    <StatsBar lang={lang} />
+    <HowItWorks lang={lang} />
+    <Features lang={lang} />
+    <Differentiator lang={lang} />
+    <About lang={lang} />
+    <DownloadCTA lang={lang} />
+  </main>
+  <Footer lang={lang} />
+</BaseLayout>

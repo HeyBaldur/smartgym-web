@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '../utils/i18n';
-import { useTranslations } from '../utils/i18n';
+import { useTranslations, langUrl } from '../utils/i18n';
 
 interface Props {
   lang: Lang;
@@ -8,37 +8,74 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+
+const features = ['f1','f2','f3','f4','f5','f6'] as const;
 ---
+
 <section class="relative z-10 py-20 sm:py-24">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div class="relative rounded-3xl overflow-hidden border border-white/[0.07] bg-white/[0.025] p-10 sm:p-14 text-center">
+    <div data-diff-header class="text-center mb-12">
+      <p class="text-green-400 text-sm font-semibold uppercase tracking-widest mb-3">{t('diff.label')}</p>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
+        {t('diff.title')}
+      </h2>
+      <p class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">
+        {t('diff.highlight')}
+      </p>
+      <p class="mt-5 text-white/45 text-base font-light max-w-lg mx-auto">
+        {t('diff.body')}
+      </p>
+    </div>
 
-      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[160px] bg-green-500/[0.05] blur-3xl rounded-full"></div>
+    <div data-diff-container class="rounded-3xl overflow-hidden border border-white/[0.08] bg-white/[0.02]">
+
+      <!-- Header row -->
+      <div class="grid grid-cols-[1fr_auto_auto] items-center border-b border-white/[0.07] px-6 py-4">
+        <div class="text-white/30 text-xs font-semibold uppercase tracking-widest"></div>
+        <div class="w-28 sm:w-36 text-center text-white/35 text-xs font-semibold uppercase tracking-wider px-4">{t('diff.vs_them')}</div>
+        <div class="w-28 sm:w-36 text-center px-4">
+          <span class="text-green-400 text-xs font-bold uppercase tracking-wider">SmartGym</span>
+        </div>
       </div>
 
-      <div class="relative">
-        <p class="text-green-400 text-sm font-semibold uppercase tracking-widest mb-5">
-          {t('diff.label')}
-        </p>
+      <!-- Feature rows -->
+      {features.map((key, i) => (
+        <div
+          data-diff-row
+          class:list={[
+            'grid grid-cols-[1fr_auto_auto] items-center px-6 py-4 transition-colors duration-200 hover:bg-white/[0.025]',
+            i < features.length - 1 ? 'border-b border-white/[0.05]' : '',
+          ]}
+        >
+          <span class="text-white/70 text-sm font-medium">{t(`diff.${key}`)}</span>
 
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-2 text-balance">
-          <span class="text-white/70">{t('diff.title')}</span>
-        </h2>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-8 text-balance">
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-500">
-            {t('diff.highlight')}
-          </span>
-        </h2>
+          <!-- Them: X -->
+          <div class="w-28 sm:w-36 flex justify-center px-4">
+            <div class="w-6 h-6 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+              <svg class="w-3 h-3 text-red-400/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-label="No">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+          </div>
 
-        <p class="text-white/55 text-lg font-light max-w-xl mx-auto mb-10 text-balance">
-          {t('diff.body')}
-        </p>
+          <!-- Us: Check -->
+          <div class="w-28 sm:w-36 flex justify-center px-4">
+            <div class="w-6 h-6 rounded-full bg-green-500/15 border border-green-500/30 flex items-center justify-center">
+              <svg class="w-3.5 h-3.5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-label="Yes">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      ))}
 
+      <!-- CTA row -->
+      <div class="px-6 py-6 bg-gradient-to-r from-green-950/30 to-transparent border-t border-green-500/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-white/50 text-sm">{t('diff.body')}</p>
         <a
-          href={`${base}${lang}/#download`}
-          class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-400 to-green-500 text-black text-sm font-semibold rounded-xl hover:from-green-300 hover:to-green-400 transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-green-500/20"
+          href={langUrl(lang, base, '#download')}
+          class="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-green-400 to-green-500 text-black text-sm font-semibold rounded-xl hover:from-green-300 hover:to-green-400 transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-green-500/20"
         >
           {t('diff.cta')}
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">

@@ -6,29 +6,36 @@ import BackgroundEffects from '../../components/BackgroundEffects.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Hero from '../../components/Hero.astro';
-import Differentiator from '../../components/Differentiator.astro';
+import StatsBar from '../../components/StatsBar.astro';
+import HowItWorks from '../../components/HowItWorks.astro';
 import Features from '../../components/Features.astro';
+import Differentiator from '../../components/Differentiator.astro';
 import About from '../../components/About.astro';
 import DownloadCTA from '../../components/DownloadCTA.astro';
 
+// English lives at root (/), so we only generate /es/ and /pl/ here.
 export const getStaticPaths = (() => {
-  return SUPPORTED_LANGS.map(lang => ({ params: { lang } }));
+  return SUPPORTED_LANGS
+    .filter(lang => lang !== 'en')
+    .map(lang => ({ params: { lang } }));
 }) satisfies GetStaticPaths;
 
-const { lang } = Astro.params as { lang: Lang };
+const { lang } = Astro.params as { lang: Exclude<Lang, 'en'> };
 const t = useTranslations(lang);
 ---
 <BaseLayout
   lang={lang}
-  title="SmartGym — Unlimited Routines, Always Free"
+  title="SmartGym — Train Smarter. No Limits. No Fees."
   description={t('hero.tagline')}
 >
   <BackgroundEffects />
   <Header lang={lang} />
   <main>
     <Hero lang={lang} />
-    <Differentiator lang={lang} />
+    <StatsBar lang={lang} />
+    <HowItWorks lang={lang} />
     <Features lang={lang} />
+    <Differentiator lang={lang} />
     <About lang={lang} />
     <DownloadCTA lang={lang} />
   </main>

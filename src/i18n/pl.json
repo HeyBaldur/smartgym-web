@@ -5,27 +5,64 @@
     "download": "Pobierz"
   },
   "hero": {
-    "badge": "Beta MVP",
-    "title1": "Nieograniczone plany.",
-    "title2": "Zawsze za darmo.",
-    "tagline": "Inteligentna aplikacja fitness z nieograniczonymi planami treningowymi, spersonalizowanymi diagnostykami i skanerem sprzętu siłowni — bez żadnych blokad płatności.",
+    "badge": "Otwarta Beta · Bezpłatna",
+    "title1": "Trenuj mądrzej.",
+    "title2": "Bez limitów. Bez opłat.",
+    "tagline": "Aplikacja fitness stworzona przez certyfikowanego trenera — nieograniczone plany, inteligentne diagnostyki i skaner sprzętu. Bezpłatna podczas Bety.",
     "cta_primary": "Pobierz na Google Play",
     "cta_secondary": "Zobacz funkcje",
-    "subtext": "Stworzona przez certyfikowanego trenera personalnego 🇵🇱",
-    "coming_soon": "Wkrótce na Google Play"
+    "subtext": "Stworzona przez certyfikowanego trenera personalnego · Otwarta Beta",
+    "coming_soon": "Wkrótce na Google Play",
+    "stat1_value": "9",
+    "stat1_label": "Funkcji",
+    "stat2_value": "∞",
+    "stat2_label": "Planów",
+    "stat3_value": "0",
+    "stat3_label": "Opłat (Beta)",
+    "stat4_value": "3",
+    "stat4_label": "Języki"
+  },
+  "stats": {
+    "label": "Gdzie jesteśmy teraz",
+    "s1_value": "9",
+    "s1_label": "Potężnych funkcji",
+    "s2_value": "∞",
+    "s2_label": "Planów do stworzenia",
+    "s3_value": "0",
+    "s3_label": "Opłat podczas Bety",
+    "s4_value": "3",
+    "s4_label": "Obsługiwanych języków"
+  },
+  "how": {
+    "label": "Jak to działa",
+    "title": "Gotowy w minuty",
+    "subtitle": "Bez skomplikowanego wdrożenia. Prawdziwy trening od pierwszego dnia.",
+    "step1_title": "Stwórz swój profil",
+    "step1_desc": "Wprowadź wagę, wzrost, wiek, cele i kontuzje. SmartGym używa tych danych do personalizacji wszystkiego.",
+    "step2_title": "Otrzymaj diagnostykę",
+    "step2_desc": "Otrzymaj ocenę w stylu coachingowym dostosowaną do Twoich ograniczeń — taką, za którą normalnie płaciłbyś trenerowi.",
+    "step3_title": "Trenuj według planu",
+    "step3_desc": "Korzystaj z planu systemowego, stwórz własny lub zeskanuj sprzęt siłowni, by odkryć co możesz teraz robić."
   },
   "diff": {
     "label": "Dlaczego SmartGym?",
     "title": "Inne aplikacje blokują cię po 3 planach.",
     "highlight": "SmartGym nie.",
-    "body": "Twórz, zapisuj i udostępniaj nieograniczone plany treningowe — bez karty kredytowej, bez ukrytych limitów.",
-    "cta": "Zacznij trenować za darmo"
+    "body": "Twórz, zapisuj i udostępniaj nieograniczone plany treningowe — bez karty kredytowej, bez ukrytych limitów podczas Bety.",
+    "cta": "Zacznij trenować za darmo",
+    "vs_them": "Inne aplikacje",
+    "vs_us": "SmartGym",
+    "f1": "Nieograniczone plany treningowe",
+    "f2": "Treningi uwzględniające kontuzje",
+    "f3": "Inteligentny skaner sprzętu",
+    "f4": "Spersonalizowana diagnostyka coachingowa",
+    "f5": "Twórz i udostępniaj własne plany",
+    "f6": "Bezpłatna podczas Bety"
   },
   "features": {
     "label": "Funkcje",
     "title": "Wszystko, czego potrzebujesz, by trenować mądrzej",
-    "subtitle": "Prawdziwe narzędzia stworzone przez prawdziwego trenera.",
-    "star_label": "Kluczowa funkcja",
+    "subtitle": "Prawdziwe narzędzia stworzone przez prawdziwego trenera — nie przez zespół finansowany przez VC.",
     "items": {
       "diagnostic": {
         "title": "Inteligentna Diagnostyka",
@@ -71,16 +108,20 @@
     "title_text": "Zbudowane przez trenera. Zakodowane przez tę samą osobę.",
     "body1": "Rodolfo A. (Baldurion) Jaubert jest certyfikowanym trenerem personalnym (FitAcademy, Polska) i programistą.",
     "body2": "SmartGym powstał z prostej frustracji: aplikacje fitness albo zbytnio upraszczają (tylko filmy z ćwiczeniami) albo zbytnio komplikują (zatłoczone trackery). SmartGym daje prawdziwą wiedzę treningową, opartą na prawdziwym doświadczeniu trenera, w aplikacji, która szanuje Twój czas.",
-    "location": "Stworzone w Katowicach 🇵🇱"
+    "location": "Stworzone w Katowicach 🇵🇱",
+    "contact_title": "Współpracuj z Baldurionem bezpośrednio",
+    "contact_body": "Potrzebujesz indywidualnego planu treningowego, profesjonalnych wskazówek lub sesji z trenerem personalnym? Zarezerwuj sesję lub skontaktuj się bezpośrednio.",
+    "book_session": "Zarezerwuj sesję",
+    "or_email": "lub e-mail"
   },
   "cta": {
-    "badge": "Teraz w Fazie Beta",
-    "title": "Gotowy/a trenować mądrzej?",
-    "subtitle": "Dostępna na Androida. Bezpłatna do pobrania.",
-    "disclaimer": "Aktualnie w fazie beta · Dostępna na Android 13+"
+    "badge": "Beta — Bezpłatna do Pobrania",
+    "title": "Twój najlepszy trening zaczyna się dziś.",
+    "subtitle": "Bezpłatna podczas Bety. Zaloguj się przez Google. Bez karty.",
+    "disclaimer": "Aktualnie w Becie · Android 13+ · Płatne plany mogą pojawić się w przyszłych wersjach"
   },
   "footer": {
-    "tagline": "Prawdziwe treningi. Bez blokad płatności.",
+    "tagline": "Prawdziwe treningi. Stworzone przez trenera.",
     "nav_title": "Nawigacja",
     "home": "Strona główna",
     "privacy": "Polityka Prywatności",

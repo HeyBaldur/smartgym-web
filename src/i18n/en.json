@@ -5,27 +5,64 @@
     "download": "Download"
   },
   "hero": {
-    "badge": "Beta MVP",
-    "title1": "Unlimited routines.",
-    "title2": "Always free.",
-    "tagline": "The smart fitness app that gives you unlimited custom workouts, personalized diagnostics, and a gym equipment scanner — without paywalls.",
+    "badge": "Open Beta · Free to Use",
+    "title1": "Train smarter.",
+    "title2": "No limits. No fees.",
+    "tagline": "A fitness app built by a certified trainer — unlimited custom routines, smart diagnostics, and a gym equipment scanner. Free during Beta.",
     "cta_primary": "Download on Google Play",
     "cta_secondary": "See features",
-    "subtext": "Made by a certified personal trainer 🇵🇱",
-    "coming_soon": "Coming soon to Google Play"
+    "subtext": "Made by a certified personal trainer · Open Beta",
+    "coming_soon": "Coming soon to Google Play",
+    "stat1_value": "9",
+    "stat1_label": "Features",
+    "stat2_value": "∞",
+    "stat2_label": "Routines",
+    "stat3_value": "0",
+    "stat3_label": "Fees (Beta)",
+    "stat4_value": "3",
+    "stat4_label": "Languages"
+  },
+  "stats": {
+    "label": "Where we are right now",
+    "s1_value": "9",
+    "s1_label": "Powerful features",
+    "s2_value": "∞",
+    "s2_label": "Routines you can create",
+    "s3_value": "0",
+    "s3_label": "Fees during Beta",
+    "s4_value": "3",
+    "s4_label": "Languages supported"
+  },
+  "how": {
+    "label": "How it works",
+    "title": "Up and running in minutes",
+    "subtitle": "No onboarding maze. Just real training from day one.",
+    "step1_title": "Build your profile",
+    "step1_desc": "Enter your weight, height, age, goals, and any injuries. SmartGym uses this to personalize everything.",
+    "step2_title": "Get your diagnostic",
+    "step2_desc": "Receive a coach-style evaluation tailored to your limits — the kind you'd normally pay a trainer for.",
+    "step3_title": "Train with your plan",
+    "step3_desc": "Follow a system routine, create your own, or scan your gym equipment to discover what you can do right now."
   },
   "diff": {
     "label": "Why SmartGym?",
     "title": "Other apps lock you out after 3 routines.",
     "highlight": "SmartGym doesn't.",
-    "body": "Create, save, and share unlimited custom workout plans — no credit card required, no hidden limits.",
-    "cta": "Start training free"
+    "body": "Create, save, and share unlimited custom workout plans — no credit card, no hidden limits during Beta.",
+    "cta": "Start training free",
+    "vs_them": "Other apps",
+    "vs_us": "SmartGym",
+    "f1": "Unlimited routines",
+    "f2": "Injury-aware workouts",
+    "f3": "Smart gym equipment scanner",
+    "f4": "Personalized coach diagnostic",
+    "f5": "Create & share your own plans",
+    "f6": "Free during Beta"
   },
   "features": {
     "label": "Features",
     "title": "Everything you need to train smarter",
-    "subtitle": "Real tools built by a real trainer.",
-    "star_label": "Star feature",
+    "subtitle": "Real tools built by a real trainer — not a VC-backed product team.",
     "items": {
       "diagnostic": {
         "title": "Smart Diagnostic",
@@ -71,16 +108,20 @@
     "title_text": "Built by a trainer. Coded by the same person.",
     "body1": "Rodolfo A. (Baldurion) Jaubert is a certified personal trainer (FitAcademy, Poland) and software developer.",
     "body2": "SmartGym was born from a simple frustration: fitness apps either oversimplify (just exercise videos) or overcomplicate (cluttered trackers for gym bros). SmartGym gives real training knowledge, built on real trainer experience, in an app that respects your time.",
-    "location": "Made in Katowice 🇵🇱"
+    "location": "Made in Katowice 🇵🇱",
+    "contact_title": "Work with Baldurion directly",
+    "contact_body": "Need a custom training plan, professional guidance, or personal trainer sessions? Book a session or reach out directly.",
+    "book_session": "Book a session",
+    "or_email": "or email"
   },
   "cta": {
-    "badge": "Now in Beta",
-    "title": "Ready to train smarter?",
-    "subtitle": "Available on Android. Free to download.",
-    "disclaimer": "Currently in beta · Available for Android 13+"
+    "badge": "Beta — Free to Download",
+    "title": "Your best workout starts today.",
+    "subtitle": "Free during Beta. Sign in with Google. No credit card.",
+    "disclaimer": "Currently in Beta · Android 13+ · Paid plans may be introduced in future versions"
   },
   "footer": {
-    "tagline": "Real workouts. No paywalls.",
+    "tagline": "Real workouts. Built by a trainer.",
     "nav_title": "Navigation",
     "home": "Home",
     "privacy": "Privacy Policy",

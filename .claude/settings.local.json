@@ -10,7 +10,19 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/en/terms)",
       "Bash(npx kill-port *)",
       "Bash(python3 -c \"from PIL import Image; img = Image.open\\('C:/Users/fillo/Documents/Fitness/Projects/smartgym-web/public/screenshots/hero.png'\\); print\\(img.size\\)\")",
-      "Bash(powershell -Command 'Add-Type -AssemblyName System.Drawing; $img = [System.Drawing.Image]::FromFile\\('\\\\''C:/Users/fillo/Documents/Fitness/Projects/smartgym-web/public/screenshots/hero.png'\\\\''\\); Write-Output \\($img.Width.ToString\\(\\) + '\\\\''x'\\\\'' + $img.Height.ToString\\(\\)\\); $img.Dispose\\(\\)')"
+      "Bash(powershell -Command 'Add-Type -AssemblyName System.Drawing; $img = [System.Drawing.Image]::FromFile\\('\\\\''C:/Users/fillo/Documents/Fitness/Projects/smartgym-web/public/screenshots/hero.png'\\\\''\\); Write-Output \\($img.Width.ToString\\(\\) + '\\\\''x'\\\\'' + $img.Height.ToString\\(\\)\\); $img.Dispose\\(\\)')",
+      "Bash(npm install *)",
+      "Bash(node -e \"const p = require\\('./node_modules/animejs/package.json'\\); console.log\\(p.version\\)\")",
+      "Bash(node -e \"const a = require\\('./node_modules/animejs/lib/anime.cjs.js'\\); console.log\\(typeof a\\)\")",
+      "Bash(dir C:\\\\Users\\\\fillo\\\\Documents\\\\Fitness\\\\Projects\\\\smartgym-web\\\\node_modules\\\\animejs *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/smartgym-web/en/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/)",
+      "Bash(curl -s -o /dev/null -w \" | %{http_code}\" http://localhost:4321/en/)",
+      "Bash(start *)",
+      "Bash(curl -s -o /dev/null -w \"/ → %{http_code}\\\\n\" http://localhost:4321/)",
+      "Bash(curl -s -o /dev/null -w \"/es/ → %{http_code}\\\\n\" http://localhost:4321/es/)",
+      "Bash(curl -s -o /dev/null -w \"/pl/ → %{http_code}\\\\n\" http://localhost:4321/pl/)",
+      "Bash(curl -s -o /dev/null -w \"/en/ → %{http_code} \\(redirect\\)\\\\n\" http://localhost:4321/en/)"
     ]
   }
 }

@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '../utils/i18n';
-import { useTranslations } from '../utils/i18n';
+import { useTranslations, langUrl } from '../utils/i18n';
 
 interface Props {
   lang: Lang;
@@ -8,19 +8,20 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
-const langBase = `${base}${lang}/`;
 
-const langs = [
-  { code: 'en' as Lang, label: 'EN' },
-  { code: 'es' as Lang, label: 'ES' },
-  { code: 'pl' as Lang, label: 'PL' },
+const home = langUrl(lang, base);
+
+const langLinks = [
+  { code: 'en' as Lang, label: 'EN', href: base },
+  { code: 'es' as Lang, label: 'ES', href: `${base}es/` },
+  { code: 'pl' as Lang, label: 'PL', href: `${base}pl/` },
 ];
 ---
 <header class="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.07] bg-black/75 backdrop-blur-xl">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
 
-      <a href={langBase} class="flex items-center gap-2.5 group" aria-label="SmartGym Home">
+      <a href={home} class="flex items-center gap-2.5 group" aria-label="SmartGym Home">
         <img
           src={`${base}icon.png`}
           alt="SmartGym icon"
@@ -32,17 +33,17 @@ const langs = [
       </a>
 
       <nav class="hidden md:flex items-center gap-6" aria-label="Main navigation">
-        <a href={`${langBase}#features`} class="text-white/60 hover:text-white text-sm font-medium transition-colors duration-200">
+        <a href={langUrl(lang, base, '#features')} class="text-white/60 hover:text-white text-sm font-medium transition-colors duration-200">
           {t('nav.features')}
         </a>
-        <a href={`${langBase}#about`} class="text-white/60 hover:text-white text-sm font-medium transition-colors duration-200">
+        <a href={langUrl(lang, base, '#about')} class="text-white/60 hover:text-white text-sm font-medium transition-colors duration-200">
           {t('nav.about')}
         </a>
 
         <div class="flex items-center gap-1 border-l border-white/10 pl-4">
-          {langs.map(({ code, label }) => (
+          {langLinks.map(({ code, label, href }) => (
             <a
-              href={`${base}${code}/`}
+              href={href}
               aria-current={code === lang ? 'page' : undefined}
               class:list={[
                 'px-2 py-1 rounded text-xs font-semibold transition-all duration-200',
@@ -57,7 +58,7 @@ const langs = [
         </div>
 
         <a
-          href={`${langBase}#download`}
+          href={langUrl(lang, base, '#download')}
           class="px-4 py-2 bg-gradient-to-r from-green-400 to-green-500 text-black text-sm font-semibold rounded-lg hover:from-green-300 hover:to-green-400 transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-green-500/20"
         >
           {t('nav.download')}
@@ -66,9 +67,9 @@ const langs = [
 
       <div class="flex md:hidden items-center gap-3">
         <div class="flex items-center gap-1">
-          {langs.map(({ code, label }) => (
+          {langLinks.map(({ code, label, href }) => (
             <a
-              href={`${base}${code}/`}
+              href={href}
               class:list={[
                 'px-1.5 py-0.5 rounded text-[10px] font-semibold transition-colors',
                 code === lang ? 'text-green-400' : 'text-white/30',
@@ -79,7 +80,7 @@ const langs = [
           ))}
         </div>
         <a
-          href={`${langBase}#download`}
+          href={langUrl(lang, base, '#download')}
           class="px-3 py-1.5 bg-gradient-to-r from-green-400 to-green-500 text-black text-xs font-semibold rounded-lg hover:from-green-300 hover:to-green-400 transition-all duration-200 active:scale-95"
         >
           {t('nav.download')}

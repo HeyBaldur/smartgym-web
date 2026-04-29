@@ -19,3 +19,18 @@ export function useTranslations(lang: Lang) {
     return typeof result === 'string' ? result : key;
   };
 }
+
+/**
+ * Returns the correct URL prefix for a given language.
+ * English lives at the site root; other languages carry their lang prefix.
+ *
+ * Examples (base = '/smartgym-web/'):
+ *   langUrl('en', base)            → '/smartgym-web/'
+ *   langUrl('es', base)            → '/smartgym-web/es/'
+ *   langUrl('en', base, '#features') → '/smartgym-web/#features'
+ *   langUrl('pl', base, '#download') → '/smartgym-web/pl/#download'
+ */
+export function langUrl(lang: Lang, base: string, path = ''): string {
+  const prefix = lang === 'en' ? base : `${base}${lang}/`;
+  return `${prefix}${path}`;
+}
